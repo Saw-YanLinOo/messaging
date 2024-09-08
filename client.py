@@ -1,11 +1,11 @@
 # client.py
 import socket
 import threading
-# from colorama import init, Fore
+from colorama import init, Fore
 
 
 # Initialize colorama
-# init()
+init()
 
 # Define server address and port
 SERVER_HOST = 'localhost'
@@ -20,8 +20,8 @@ def receive_messages(client_socket):
         try:
             message = client_socket.recv(1024).decode('utf-8')
             if message:
-                # print(f"\n{Fore.GREEN}{message}{Fore.RESET}\n")
-                print(f"\n{message}")
+                print(f"\n{Fore.GREEN}{message}{Fore.RESET}\n")
+                # print(f"\n{message}")
             else:
                 break
         except ConnectionResetError:

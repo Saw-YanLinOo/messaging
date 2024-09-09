@@ -17,11 +17,11 @@
 7. [Code Structure](#code-structure)
    - [Server (`server.py`)](#server-serverpy)
    - [Client (`client.py`)](#client-clientpy)
-8. [Challenges and Solutions](#challenges-and-solutions)
-9. [How to Use the Application](#how-to-use-the-application)
-10. [Presentation Preparation](#presentation-preparation)
-11. [Submission](#submission)
-12. [Additional Resources](#additional-resources)
+   <!-- 8. [Challenges and Solutions](#challenges-and-solutions) -->
+8. [How to Use the Application](#how-to-use-the-application)
+<!-- 10. [Presentation Preparation](#presentation-preparation) -->
+9. [Submission](#submission)
+10. [Additional Resources](#additional-resources)
 
 ---
 
@@ -38,7 +38,6 @@ This project is a **Python terminal-based chat application** that enables multip
 - **Multithreading:** Supports concurrent handling of multiple clients without performance degradation.
 - **Color-Coded Output:** Utilizes `colorama` to differentiate between server messages, client messages, and system notifications.
 - **Graceful Exit:** Allows users to exit the chat gracefully by typing `exit`.
-- **Robust Error Handling:** Manages unexpected disconnections and network errors gracefully to maintain application stability.
 
 ---
 
@@ -49,7 +48,6 @@ This project demonstrates intermediate-level Python programming skills, includin
 - **Socket Programming:** Establishing and managing network connections.
 - **Multithreading:** Handling multiple client connections simultaneously.
 - **User Interface Enhancement:** Improving terminal output readability with colored text.
-- **Exception Handling:** Ensuring the application remains stable under unexpected conditions.
 
 ---
 
@@ -67,11 +65,9 @@ This project demonstrates intermediate-level Python programming skills, includin
 Clone the project repository to your local machine using Git:
 
 ```bash
-git clone https://github.com/yourusername/chat-application.git
-cd chat-application
+git clone https://github.com/Saw-YanLinOo/terminal-chat-application.git
+cd terminal-chat-application
 ```
-
-_Replace `yourusername` with your actual GitHub username or the repository URL provided._
 
 ### 2. Install Required Libraries
 
@@ -114,7 +110,7 @@ Creating a virtual environment is recommended to manage dependencies effectively
 3. **Install Dependencies within the Virtual Environment**
 
    ```bash
-   pip install colorama
+   python3 -m pip install colorama
    ```
 
 _Remember to activate the virtual environment each time you work on the project._
@@ -200,7 +196,7 @@ from colorama import init, Fore
 init()
 
 # Define server address and port
-SERVER_HOST = '0.0.0.0'  # Listen on all available interfaces
+SERVER_HOST = 'localhost'  # Listen on all available interfaces
 SERVER_PORT = 12345
 
 clients = []
@@ -262,7 +258,7 @@ from colorama import init, Fore
 init()
 
 # Define server address and port
-SERVER_HOST = '192.168.1.5'  # Replace with your server's local IP
+SERVER_HOST = 'localhost'  # Replace with your server's local IP
 SERVER_PORT = 12345
 
 def receive_messages(client_socket):
@@ -303,7 +299,7 @@ if __name__ == "__main__":
 
 ---
 
-## Challenges and Solutions
+<!-- ## Challenges and Solutions
 
 ### 1. Managing Multiple Client Connections
 
@@ -329,7 +325,7 @@ if __name__ == "__main__":
 
 **Solution:** Utilized the **`colorama`** library to apply different colors to various types of messages. This improves readability and provides a better user experience by visually distinguishing different message sources.
 
----
+--- -->
 
 ## How to Use the Application
 
@@ -352,7 +348,7 @@ if __name__ == "__main__":
 
 ---
 
-## Presentation Preparation
+<!-- ## Presentation Preparation
 
 ### Demonstration
 
@@ -388,7 +384,7 @@ Be ready to answer questions related to:
 - **Libraries Used:**
   - The role and benefits of using `colorama` for colored outputs.
 
----
+--- -->
 
 ## Submission
 
@@ -397,7 +393,6 @@ Be ready to answer questions related to:
 - `server.py`: Server-side script handling client connections and message broadcasting.
 - `client.py`: Client-side script for connecting to the server and sending/receiving messages.
 - `README.md`: Comprehensive documentation of the project.
-- `requirements.txt` _(Optional)_: List of required Python packages.
 
 ### Directory Structure
 
@@ -408,13 +403,12 @@ chat-application/
 ├── server.py
 ├── client.py
 ├── README.md
-├── requirements.txt
 └── (Optional) other resources
 ```
 
-### Submission Method
+<!-- ### Submission Method
 
-Submit your project via the preferred submission platform (e.g., GitHub repository link, zip file upload) by the specified deadline. Ensure all files are included and organized as per the guidelines.
+Submit your project via the preferred submission platform (e.g., GitHub repository link, zip file upload) by the specified deadline. Ensure all files are included and organized as per the guidelines. -->
 
 ---
 
@@ -430,8 +424,8 @@ Submit your project via the preferred submission platform (e.g., GitHub reposito
 ## Acknowledgements
 
 - Inspired by various online resources, including tutorials and open-source projects.
-- Special thanks to Asst. Prof. Sa-nga Songmuang for the guidance and support.
+- Special thanks to Asst. Prof. Sa-nga Songmuang for the support.
 
 ---
 
-Feel free to ask me any additional features or specific requirements of this project. Thank.
+Feel free to ask me any additional features or specific requirements of this project.

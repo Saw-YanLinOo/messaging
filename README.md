@@ -17,11 +17,11 @@
 7. [Code Structure](#code-structure)
    - [Server (`server.py`)](#server-serverpy)
    - [Client (`client.py`)](#client-clientpy)
-   <!-- 8. [Challenges and Solutions](#challenges-and-solutions) -->
-8. [How to Use the Application](#how-to-use-the-application)
-<!-- 10. [Presentation Preparation](#presentation-preparation) -->
-9. [Submission](#submission)
-10. [Additional Resources](#additional-resources)
+        <!-- 8. [Challenges and Solutions](#challenges-and-solutions) -->
+     <!-- 9. [How to Use the Application](#how-to-use-the-application) -->
+     <!-- 10. [Presentation Preparation](#presentation-preparation) -->
+8. [Submission](#submission)
+9. [Additional Resources](#additional-resources)
 
 ---
 
@@ -327,7 +327,7 @@ if __name__ == "__main__":
 
 --- -->
 
-## How to Use the Application
+<!-- ## How to Use the Application
 
 ### Sending Messages
 
@@ -344,9 +344,9 @@ if __name__ == "__main__":
 
 - **Graceful Exit:**
   - Type `exit` and press `Enter`.
-  - The client will disconnect from the server, and the server will remove the client from its active list.
+  - The client will disconnect from the server, and the server will remove the client from its active list. -->
 
----
+<!-- --- -->
 
 <!-- ## Presentation Preparation
 
@@ -388,11 +388,11 @@ Be ready to answer questions related to:
 
 ## Submission
 
-### Files to Include
+<!-- ### Files to Include
 
 - `server.py`: Server-side script handling client connections and message broadcasting.
 - `client.py`: Client-side script for connecting to the server and sending/receiving messages.
-- `README.md`: Comprehensive documentation of the project.
+- `README.md`: Comprehensive documentation of the project. -->
 
 ### Directory Structure
 

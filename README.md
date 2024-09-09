@@ -190,57 +190,57 @@ Ensure both the server and client machines are connected to the same local netwo
 # server.py
 import socket
 import threading
-from colorama import init, Fore
-
-# Initialize colorama
-init()
 
 # Define server address and port
-SERVER_HOST = 'localhost'  # Listen on all available interfaces
+SERVER_HOST = '10.29.104.169'
 SERVER_PORT = 12345
 
+# List of connected clients
 clients = []
 
+
 def handle_client(client_socket):
-    """Handles communication with a connected client."""
     while True:
         try:
+            # Receive message from client
             message = client_socket.recv(1024).decode('utf-8')
             if message:
-                print(f"{Fore.GREEN}Received: {message}{Fore.RESET}")
-                if message.lower() == 'exit':
-                    print(f"{Fore.RED}Client disconnected{Fore.RESET}")
-                    break
+                print(f"Received: {message}")
+                # Broadcast message to all clients
                 broadcast_message(message, client_socket)
             else:
                 break
         except ConnectionResetError:
             break
 
+    # Remove client from list and close connection
     clients.remove(client_socket)
     client_socket.close()
 
-def broadcast_message(message, sender_socket):
+
+def broadcast_message(message, client_socket):
     """Sends the message to all clients except the sender."""
     for client in clients:
-        if client != sender_socket:
+        if client != client_socket:
             try:
                 client.send(message.encode('utf-8'))
             except BrokenPipeError:
                 clients.remove(client)
+
 
 def start_server():
     """Sets up the server and starts listening for incoming connections."""
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_socket.bind((SERVER_HOST, SERVER_PORT))
     server_socket.listen()
-    print(f"{Fore.YELLOW}Server started on {SERVER_HOST}:{SERVER_PORT}{Fore.RESET}")
+    print(f"Server started on {SERVER_HOST}:{SERVER_PORT}")
 
     while True:
         client_socket, addr = server_socket.accept()
-        print(f"{Fore.CYAN}New connection from {addr}{Fore.RESET}")
+        print(f"New connection from {addr}")
         clients.append(client_socket)
         threading.Thread(target=handle_client, args=(client_socket,)).start()
+
 
 if __name__ == "__main__":
     start_server()
@@ -254,12 +254,17 @@ import socket
 import threading
 from colorama import init, Fore
 
+
 # Initialize colorama
 init()
 
 # Define server address and port
-SERVER_HOST = 'localhost'  # Replace with your server's local IP
+SERVER_HOST = '10.29.104.169'
 SERVER_PORT = 12345
+
+# User Name
+name = ""
+
 
 def receive_messages(client_socket):
     """Continuously listens for messages from the server."""
@@ -267,14 +272,17 @@ def receive_messages(client_socket):
         try:
             message = client_socket.recv(1024).decode('utf-8')
             if message:
-                print(f"{Fore.BLUE}{message}{Fore.RESET}\n")
-                if message.lower() == 'exit':
-                    print(f"{Fore.RED}Server has disconnected{Fore.RESET}")
-                    break
+                print(f"\n{Fore.GREEN}{message}{Fore.RESET}\n")
+                # print(f"\n{message}")
             else:
                 break
         except ConnectionResetError:
             break
+        except KeyboardInterrupt:
+            break
+        except OSError:
+            break
+
 
 def start_client():
     """Connects to the server and handles sending and receiving messages."""
@@ -283,15 +291,18 @@ def start_client():
 
     threading.Thread(target=receive_messages, args=(client_socket,)).start()
 
+    name = input("Enter your name : ")
+    if name:
+        client_socket.send((name+" join the club.").encode('utf-8'))
     while True:
         message = input()
         if message:
-            client_socket.send(message.encode('utf-8'))
+            client_socket.send(("["+name+"] "+message).encode('utf-8'))
             if message.lower() == 'exit':
-                print(f"{Fore.RED}Exiting...{Fore.RESET}")
                 break
 
     client_socket.close()
+
 
 if __name__ == "__main__":
     start_client()

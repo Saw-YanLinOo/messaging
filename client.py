@@ -16,6 +16,7 @@ name = ""
 
 
 def receive_messages(client_socket):
+    """Continuously listens for messages from the server."""
     while True:
         try:
             message = client_socket.recv(1024).decode('utf-8')
@@ -33,6 +34,7 @@ def receive_messages(client_socket):
 
 
 def start_client():
+    """Connects to the server and handles sending and receiving messages."""
     client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     client_socket.connect((SERVER_HOST, SERVER_PORT))
 

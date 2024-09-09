@@ -30,6 +30,7 @@ def handle_client(client_socket):
 
 
 def broadcast_message(message, client_socket):
+    """Sends the message to all clients except the sender."""
     for client in clients:
         if client != client_socket:
             try:
@@ -39,6 +40,7 @@ def broadcast_message(message, client_socket):
 
 
 def start_server():
+    """Sets up the server and starts listening for incoming connections."""
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_socket.bind((SERVER_HOST, SERVER_PORT))
     server_socket.listen()

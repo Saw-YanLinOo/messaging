@@ -3,7 +3,7 @@ import socket
 import threading
 
 # Define server address and port
-SERVER_HOST = '10.29.104.169'
+SERVER_HOST = 'localhost'
 SERVER_PORT = 12345
 
 # List of connected clients

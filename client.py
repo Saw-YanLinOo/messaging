@@ -8,7 +8,7 @@ from colorama import init, Fore
 init()
 
 # Define server address and port
-SERVER_HOST = '10.29.104.169'
+SERVER_HOST = 'localhost'
 SERVER_PORT = 12345
 
 # User Name
